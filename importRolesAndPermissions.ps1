@@ -15,7 +15,7 @@ disconnect-viserver * -Force -Confirm:$false
 
 #Import to new VC
 
-connect-viserver swvcweblab01.sw.sherwin.com -Username -Username sw\username -Password "Password"
+connect-viserver nameofVC.domain.lab -Username -Username sw\username -Password "Password"
 Import-Csv -Path '\Users\username\roles.csv' -PipelineVariable row |
 ForEach-Object -Process {
   $Role = @{

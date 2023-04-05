@@ -226,14 +226,14 @@ function Import-VMFolderStructure {
 #Run function to export folders, including subfolders into csv.
 
 #First connect to VC which you want to export the folder from. Then disconnect
-Connect-VIServer -Server swvclab.sherwin.com -User "sw\username" -Password "password"
+Connect-VIServer -Server nameofVC.domain.lab -User "sw\username" -Password "password"
 
 #run function to export folder. Note - currently needs to be ran for each DC in turn as loop not yet needed.
 Export-VMFolderStructure -Path .\Export.csv -Datacenter "Remote_Sites"
 Disconnect-VIServer -Server * -Force -Confirm:$false
 
 #Then connect to the VC you want to import folder into
-Connect-VIServer -Server swvcweblab01.sherwin.com -User "sw\username" -Password "password"
+Connect-VIServer -Server nameofVC.domain.lab -User "sw\username" -Password "password"
 #run function to import folders
 Import-VMFolderStructure -Path .\Export.csv -Datacenter "Remote_Sites"
 Disconnect-VIServer -Server * -Force -Confirm:$false
