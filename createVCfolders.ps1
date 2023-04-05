@@ -1,4 +1,4 @@
-#x2 functions to export folders and sub folders from a current VC and import to a new VC. Note, currently, when importing, the folders are imported to every DC. Needs a fix
+#x2 functions to export folders and sub folders from a current VC and import to a new VC.
 
 function Export-VMFolderStructure {
     <#

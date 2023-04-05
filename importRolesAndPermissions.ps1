@@ -1,7 +1,7 @@
 #Script to export roles and there permissions from a current VC and import into a new VC
 
 #Remember to connect and then disconnect from each VC
-connect-viserver swvclab.sherwin.com -Username sw\username -Password "Password"
+connect-viserver nameofVC.domain.lab -Username sw\username -Password "Password"
 
 #export from current VC
 Get-VIRole |
@@ -16,7 +16,7 @@ disconnect-viserver * -Force -Confirm:$false
 #Import to new VC
 
 connect-viserver swvcweblab01.sw.sherwin.com -Username -Username sw\username -Password "Password"
-Import-Csv -Path '\Users\admaxh529\roles.csv' -PipelineVariable row |
+Import-Csv -Path '\Users\username\roles.csv' -PipelineVariable row |
 ForEach-Object -Process {
   $Role = @{
     Name = $row.Name
